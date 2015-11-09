@@ -10,9 +10,9 @@ hpc_df <- transform(hpc_df, DateTime=strptime(hpc_df$DateTime,format="%d/%m/%Y %
 
 # Create Plot
 png(file="plot3.png",width=480,height=480)
-plot(hpc_df$DateTime, hpc_df$Sub_metering_1, type = "l", col = "black", xlab = "", ylab = "Energy sub metering")
-lines(hpc_df$DateTime, hpc_df$Sub_metering_2, col = "red")
-lines(hpc_df$DateTime, hpc_df$Sub_metering_3, col = "blue")
-sub_meterings <- colnames(hpc_df)[grepl("Sub_metering_[0-9]", colnames(hpc_df))]
-legend(x = "topright", legend = sub_meterings, lty = 1, col = c("black", "red", "blue"))
+plot(hpc_df$DateTime, hpc_df$Sub_metering_1, type = "l", col = "black", xlab = "", ylab = "Energy sub metering (watt-hour)")
+ lines(hpc_df$DateTime, hpc_df$Sub_metering_2, col = "red")
+ lines(hpc_df$DateTime, hpc_df$Sub_metering_3, col = "blue")
+ sub_meterings <- colnames(hpc_df)[grepl("Sub_metering_[0-9]", colnames(hpc_df))]
+ legend(x = "topright", legend = sub_meterings, lty = 1, col = c("black", "red", "blue"))
 dev.off()
